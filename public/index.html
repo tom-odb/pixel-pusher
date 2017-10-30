@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                line-height: 1;
+            }
+
+            #canvas {
+                display: flex;
+                flex-flow: wrap;
+                margin: 100px auto;
+            }
+
+            .line {
+                display: flex;
+            }
+
+            .picker {
+                position: fixed;
+                top: 24px;
+                left: 24px;
+                display: flex;
+            }
+
+            .picker select {
+                margin-right: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="picker">
+            <select id="imagePicker">
+                <option value="minion.jpg">Minion</option>
+                <option value="cats.jpg">Cats</option>
+                <option value="arrow.png">Arrow</option>
+                <option value="mario.jpg">Mario</option>
+                <option value="google.jpg">Google</option>
+            </select>
+            <button id="btn">Go</button>
+        </div>
+        <div id="canvas"></div>
+        <script src="img-parser.js"></script>
+    </body>
+</html>

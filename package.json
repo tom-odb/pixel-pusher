@@ -1,0 +1,19 @@
+{
+  "name": "img-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "img-parser.js",
+  "scripts": {
+    "start": "node app/app.js --inspect=9222",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "get-pixels": "^3.3.0",
+    "jimp": "^0.2.28",
+    "q": "^1.5.0"
+  }
+}
