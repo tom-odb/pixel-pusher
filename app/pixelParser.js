@@ -29,7 +29,7 @@ function calc(rawData, config) {
         });
     });
 
-    return panels;
+    return panels.map(reverseUneven);
 }
 
 module.exports = (rawData, config) => calc(flatten(rawData), config);

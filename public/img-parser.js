@@ -4,39 +4,6 @@
     const panelsX = 3;
     const panelsY = 2;
 
-    function chunkBy(size, data) {
-        const chunks = [];
-
-        while (data.length > 0) {
-            chunks.push(data.splice(0, size));
-        }
-
-        return chunks;
-    }
-
-    function reverseUneven(data) {
-        return data.map((line, i) => i % 2 > 0 ? line.reverse() : line);
-    }
-
-    function flatten(pixels) {
-        return pixels.map(pixel => pixel.map(val => Math.round(val / 32) * 32));
-    }
-
-    function calc(rawData) {
-        const lines = chunkBy(panelSize * panelsX, rawData);
-        const panels = new Array(panelsX * panelsY).fill(0).map(item => []);
-
-        lines.forEach((line, i) => {
-            const chunks = chunkBy(panelSize, line);
-            const panelOffset = Math.floor(i / panelSize) * panelsX;
-
-            chunks.forEach((chunk, j) => {
-                panels[j + panelOffset].push(chunk);
-            });
-        });
-
-        return panels;
-    }
 
     function render(panels) {
         const canvas = document.getElementById("canvas");
@@ -50,7 +17,7 @@
             panel.style.width = `${panelSize * pixelSize}px`;
             panel.style.height = `${panelSize * pixelSize}px`;
 
-            reverseUneven(panelData).forEach((lineData, lineNumber) => {
+            panelData.forEach((lineData, lineNumber) => {
                 const line = document.createElement("div");
                 line.classList.add("line");
                 line.setAttribute("id", lineNumber);
@@ -87,7 +54,7 @@
             canvas.removeChild(canvas.firstChild);
         }
 
-        fetchImg(img).then(pixels => render(calc(flatten(pixels))));
+        fetchImg(img).then(pixels => render(pixels));
     }
 
     function bindEventListeners() {
